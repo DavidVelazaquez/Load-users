@@ -7,8 +7,9 @@ module.exports = app => {
 
   router.get("/users", async (req, res) => {
     const users = await Fetch("https://jsonplaceholder.typicode.com/users");
+    const solvdedUseres = await users.json();
     res.status(200).json({
-      data: await users.json(),
+      data: solvdedUseres,
       message: "Users listed"
     });
   });

@@ -16,4 +16,4 @@ Api(app);
 
 app.use("/", homeRoute);
 
-app.listen(PORT, () => console.log("running on port 3000"));
+app.listen(PORT, () => console.log(`running on port ${PORT}`));
