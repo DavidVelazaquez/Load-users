@@ -1,0 +1,39 @@
+body {
+  background-color: #1b1b1b;
+}
+
+.input__filter {
+  height: 30px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+
+.user__card {
+  width: 250px;
+  padding: 10px;
+  padding-top: 5px;
+  margin: 10px 0;
+  background-color: #2f66b8;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.user__card > * {
+  margin: 4px 0;
+}
+
+.user__card-username {
+  color: #d3d3d3;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.user__card-email,
+.user__card-phone,
+.user__card-city {
+  color: #beb893;
+}
