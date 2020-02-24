@@ -24,16 +24,22 @@ module.exports = app => {
     }
   });
 
-  router.get("/users/:user", async (req, res) => {
+  router.get("/users/:user", async (req, res, next) => {
+    const { tags } = req.query;
     const { user } = req.params;
     // const users = await Fetch("https://jsonplaceholder.typicode.com/users");
     // const solvedUsers = await users.json();
-    const solvedUsers = await getUsers();
-    const filteredUsers = solvedUsers.filter(cUser => {
-      const filterRegex = new RegExp(user, "gi");
-      return filterRegex.test(cUser.username);
-    });
-    res.json(filteredUsers);
+    // const solvedUsers = await getUsers();
+    try {
+      const users = await usersService.getUsers({ tags });
+      const filteredUsers = users.filter(cUser => {
+        const filterRegex = new RegExp(user, "gi");
+        return filterRegex.test(cUser.username);
+      });
+      res.json(filteredUsers);
+    } catch (error) {
+      next(error);
+    }
   });
 
   router.post("/", async (req, res, next) => {
