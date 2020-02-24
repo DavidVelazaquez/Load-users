@@ -1,9 +1,9 @@
 async function getUsers() {
   const users = await fetch("http://localhost:3000/api/users");
   const solvedUsers = await users.json();
-  const result = solvedUsers.map(user => {
-    const { username, phone, email, address } = user;
-    return `<article class='user__card'><p class='user__card-username'>${username}</p><p class='user__card-email'>${email}</p><p class='user__card-phone'>${phone}</p><p class='user__card-city'>${address.city}</p></article>`;
+  const result = solvedUsers.data.map(user => {
+    const { username, phone, email, city } = user;
+    return `<article class='user__card'><p class='user__card-username'>${username}</p><p class='user__card-email'>${email}</p><p class='user__card-phone'>${phone}</p><p class='user__card-city'>${city}</p></article>`;
   });
   document.getElementById("root").innerHTML = result.join("");
 }

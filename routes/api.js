@@ -39,7 +39,7 @@ module.exports = app => {
   router.post("/", async (req, res, next) => {
     const { body: user } = req;
     try {
-      const newUser = await usersService.createUser({ user });
+      const newUser = await usersService.createUser(user);
       res.status(201).json({
         data: newUser,
         message: "User created"
