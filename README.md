@@ -1,2 +1,3 @@
 # Load-users
-Load users with express-REST API- ejs
+
+Create, load and filter users with express-REST API- ejs
