@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles/main.css" />
+    <script src="../static/loadUsers.js"></script>
+    <title>Ejemplo</title>
+  </head>
+  <body>
+    <section class="container">
+      <article class="container__article">
+        <input type="text" class="input__filter" id="input__filter" />
+        <section id="root"></section>
+      </article>
+
+      <form
+        id="newUserForm"
+        class="container__form"
+        action="/api/adduser"
+        method="post"
+      >
+        <h2 class="container__form-title">New user</h2>
+        <input
+          class="container__form-input"
+          type="text"
+          placeholder="username"
+          name="username"
+        />
+        <input
+          class="container__form-input"
+          type="text"
+          placeholder="email"
+          name="email"
+        />
+        <input
+          class="container__form-input"
+          type="text"
+          placeholder="phone"
+          name="phone"
+        />
+        <input
+          class="container__form-input"
+          type="text"
+          placeholder="city"
+          name="city"
+        />
+        <input type="submit" value="Add" class="container__form-btn" />
+      </form>
+    </section>
+  </body>
+</html>

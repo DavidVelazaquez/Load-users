@@ -13,8 +13,8 @@ class UsersService {
     return users || [];
   }
 
-  async createUser(data) {
-    const createdUser = await this.mongo.create(this.collection, data);
+  async createUser({ user }) {
+    const createdUser = await this.mongo.create(this.collection, user);
     return createdUser;
   }
 }

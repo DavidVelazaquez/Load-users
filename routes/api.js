@@ -42,22 +42,14 @@ module.exports = app => {
     }
   });
 
-  router.post("/", async (req, res, next) => {
+  router.post("/adduser", async (req, res, next) => {
     const { body: user } = req;
+    console.log(req.body);
     try {
-      const newUser = await usersService.createUser(user);
-      res.status(201).json({
-        data: newUser,
-        message: "User created"
-      });
+      await usersService.createUser({ user });
+      res.status(201).redirect("/");
     } catch (error) {
       next(error);
     }
   });
 };
-
-// const getUsers = async () => {
-//   const users = await Fetch("https://jsonplaceholder.typicode.com/users");
-//   const solvedUsers = await users.json();
-//   return solvedUsers;
-// };
